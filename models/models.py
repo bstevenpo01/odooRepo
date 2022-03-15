@@ -44,6 +44,6 @@ class alquiler(models.Model):
 
     #Atributos
     nombreVideojuego = fields.Char(string='Nombre Videojuego', required=True)
-    tipoVideojuego = fields.Selection(string='Tipo de videojuego', Selection=[('d','Deportes'),('a','Accion'),('c','Carreras'),('e','Estrategia')], help='Tipo de videojuego que esta alquilando')
+    tipoVideojuego = fields.Selection(string='Tipo de videojuego', selection=[('d','Deportes'),('a','Accion'),('c','Carreras'),('e','Estrategia')], help='Tipo de videojuego que esta alquilando')
     descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
     

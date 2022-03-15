@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "alquiler",
+    'name': "alquiler videojuegos",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        En este modulo podemos asignar a diferentes clientes
+        """,
 
     'description': """
-        Long description of module's purpose
+        Este modulo fue desarrollado para gestionar los alquileres
     """,
 
     'author': "Bryan Steven",

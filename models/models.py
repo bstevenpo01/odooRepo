@@ -38,8 +38,8 @@ class cliente(models.Model):
     _description = 'Define los atributos de un ciente'
 
     # Atributos
-    dniCliente = fields.Char(string='DNI', required=True)
     nombreCliente = fields.Char(string='Nombre y Apellidos', required=True)
+    dniCliente = fields.Char(string='DNI', required=True)
     fechaNacimiento = fields.Date(string='Fecha Nacimiento', required=True, default = fields.date.today())
     direccionCliente = fields.Char(string='Direccion', required=True)
     telefonoCliente = fields.Char(string='Telefono', required=True)

@@ -38,14 +38,15 @@ class cliente(models.Model):
     _description = 'Define los atributos de un ciente'
 
     # Atributos
-    nombreCliente = fields.Char(string='Nombre y Apellidos', required=True)
+    nombreCliente = fields.Char(string='Nombre', required=True)
+    apellidosCliente = fields.Char(string='Apellidos')
     dniCliente = fields.Char(string='DNI', required=True)
     fechaNacimiento = fields.Date(string='Fecha Nacimiento', required=True, default = fields.date.today())
     direccionCliente = fields.Char(string='Direccion', required=True)
     telefonoCliente = fields.Char(string='Telefono', required=True)
 
     #Relacion entre tablas
-    suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Clientes')
+    suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Suscripcion')
     alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquiler' )
 
 

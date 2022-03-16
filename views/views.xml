@@ -59,7 +59,7 @@
 
 <!--VISTA CLIENTES-->
     <record model="ir.ui.view" id="alquileres.cliente_list_view">
-      <field name="name">alquileres.view.tree</field>
+      <field name="name">alquileres.cliente.view.tree</field>
       <field name="model">alquileres.cliente</field>
       <field name="arch" type="xml">
         <tree>
@@ -74,7 +74,7 @@
 
   <!--VISTA SUSCRIPCION-->
     <record model="ir.ui.view" id="alquileres.suscripcion_list_view">
-      <field name="name">alquileres.view.tree</field>
+      <field name="name">alquileres.suscripcion.view.tree</field>
       <field name="model">alquileres.suscripcion</field>
       <field name="arch" type="xml">
         <tree>
@@ -88,7 +88,7 @@
 
 <!--VISTA ALQUILER-->
     <record model="ir.ui.view" id="alquileres.alquiler_list_view">
-      <field name="name">alquileres.view.tree</field>
+      <field name="name">alquileres.alquiler.view.tree</field>
       <field name="model">alquileres.alquiler</field>
       <field name="arch" type="xml">
         <tree>

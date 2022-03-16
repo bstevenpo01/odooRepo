@@ -30,6 +30,7 @@ class suscripcion(models.Model):
 
 
 
+
     #Relacion entre tablas
     cliente_id = fields.One2many('alquileres.cliente','suscripcion_id', string='Suscripcion')
 
@@ -44,6 +45,8 @@ class cliente(models.Model):
     fechaNacimiento = fields.Date(string='Fecha Nacimiento', required=True, default = fields.date.today())
     direccionCliente = fields.Char(string='Direccion', required=True)
     telefonoCliente = fields.Char(string='Telefono', required=True)
+    provincia = fields.Selection(string='Provincia', selection=[('a','Madrid'),('b','Toledo'),('c','Burgos'),('d','Cantabria'),('e','Albacete')], help='Tipo de provincia', required=True)
+
 
     #Relacion entre tablas
     suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Suscripcion')

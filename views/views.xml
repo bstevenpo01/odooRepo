@@ -69,6 +69,7 @@
           <field name="fechaNacimiento"/>
           <field name="direccionCliente"/>
           <field name="telefonoCliente"/>
+          <field name="provincia"/>
         </tree>
       </field>
     </record>

@@ -20,17 +20,17 @@
 from odoo import models, fields, api
 
 class suscripcion(models.Model):
-    _name = 'alquiler.suscripcion'
+    _name = 'alquileres.suscripcion'
     _description = 'Define los atributos de la suscripcion'
 
     # Atributos
     nombreSus = fields.Char(string='Nombre suscripcion', required=True)
 
     #Relacion entre tablas
-    cliente_id = fields.One2many('alquiler.cliente','suscripcion_id', string='Suscripcion')
+    cliente_id = fields.One2many('alquileres.cliente','suscripcion_id', string='Suscripcion')
 
 class cliente(models.Model):
-    _name = 'alquiler.cliente'
+    _name = 'alquileres.cliente'
     _description = 'Define los atributos de un ciente'
 
     # Atributos
@@ -41,8 +41,8 @@ class cliente(models.Model):
     telefonoCliente = fields.Char(string='Telefono', required=True)
 
     #Relacion entre tablas
-    suscripcion_id = fields.Many2one('alquiler.suscripcion', string='Clientes')
-    alquiler_ids = fields.Many2many('alquiler.alquiler', string='Alquiler' )
+    suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Clientes')
+    alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquiler' )
 
 
 class alquiler(models.Model):

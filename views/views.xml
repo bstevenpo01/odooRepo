@@ -64,7 +64,7 @@
       <field name="arch" type="xml">
         <tree>
           <field name="nombreCliente"/>
-          <field name="nombreCliente"/>
+          <field name="apellidosCliente"/>
           <field name="dniCliente"/>
           <field name="fechaNacimiento"/>
           <field name="direccionCliente"/>

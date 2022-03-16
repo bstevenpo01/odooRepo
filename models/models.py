@@ -42,7 +42,7 @@ class cliente(models.Model):
 
     #Relacion entre tablas
     suscripcion_id = fields.Many2one('alquiler.suscripcion', string='Clientes')
-    alquiler_ids = fields.Many2many('alquiler.alquiler', string='Alquileres' )
+    alquiler_ids = fields.Many2many('alquiler.alquiler', string='Alquiler' )
 
 
 class alquiler(models.Model):

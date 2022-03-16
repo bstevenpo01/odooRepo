@@ -68,8 +68,9 @@
           <field name="dniCliente"/>
           <field name="fechaNacimiento"/>
           <field name="direccionCliente"/>
-          <field name="telefonoCliente"/>
           <field name="provincia"/>
+          <field name="telefonoCliente"/>
+          
         </tree>
       </field>
     </record>

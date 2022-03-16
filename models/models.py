@@ -20,14 +20,17 @@
 from odoo import models, fields, api
 
 class suscripcion(models.Model):
-    _name = 'alquiler.suscripcion'
+    _name = 'alquileres.suscripcion'
     _description = 'Define los atributos de la suscripcion'
 
     # Atributos
     nombreSus = fields.Char(string='Nombre suscripcion', required=True)
 
+    #Relacion entre tablas
+    cliente_id = fields.One2many('alquileres.cliente','suscripcion_id', string='Suscripcion')
+
 class cliente(models.Model):
-    _name = 'alquiler.cliente'
+    _name = 'alquileres.cliente'
     _description = 'Define los atributos de un ciente'
 
     # Atributos
@@ -37,9 +40,13 @@ class cliente(models.Model):
     direccionCliente = fields.Char(string='Direccion', required=True)
     telefonoCliente = fields.Char(string='Telefono', required=True)
 
+    #Relacion entre tablas
+    suscripcion_id = fields.Many2One('alquileres.suscripcion', string='Clientes')
+    alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquileres' )
+
 
 class alquiler(models.Model):
-    _name = 'alquiler.alquiler'
+    _name = 'alquileres.alquiler'
     _description = 'Define los atributos del alquiler'
 
     #Atributos
@@ -47,3 +54,6 @@ class alquiler(models.Model):
     tipoVideojuego = fields.Selection(string='Tipo de videojuego', selection=[('d','Deportes'),('a','Accion'),('c','Carreras'),('e','Estrategia')], help='Tipo de videojuego que esta alquilando')
     descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
     
+    #Relacion entre tablas
+
+    cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')

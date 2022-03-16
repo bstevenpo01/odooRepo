@@ -25,6 +25,10 @@ class suscripcion(models.Model):
 
     # Atributos
     nombreSus = fields.Char(string='Nombre suscripcion', required=True)
+    tipoSuscripcion = fields.Selection(string='Tipo de suscripcion', selection=[('a','platinun'),('b','Gold'),('c','Gold+'),('d','Vip')], help='Tipo de suscripcion que tiene el cliente', required=True)
+    descripcionSuscripcion = fields.Text(string='Descripcion de la suscripcion')
+
+
 
     #Relacion entre tablas
     cliente_id = fields.One2many('alquileres.cliente','suscripcion_id', string='Suscripcion')
@@ -53,6 +57,8 @@ class alquiler(models.Model):
     nombreVideojuego = fields.Char(string='Nombre Videojuego', required=True)
     tipoVideojuego = fields.Selection(string='Tipo de videojuego', selection=[('d','Deportes'),('a','Accion'),('c','Carreras'),('e','Estrategia')], help='Tipo de videojuego que esta alquilando')
     descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
+    fechaInicio = fields.Date(string="Fecha inicio alquiler", required=True)
+    fechaFin = fields.Date(string="Fecha final alquiler", required=True)
     
     #Relacion entre tablas
 

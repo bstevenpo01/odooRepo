@@ -63,8 +63,8 @@
       <field name="model">alquileres.cliente</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="dniCliente"/>
           <field name="nombreCliente"/>
+          <field name="dniCliente"/>
           <field name="fechaNacimiento"/>
           <field name="direccionCliente"/>
           <field name="telefonoCliente"/>

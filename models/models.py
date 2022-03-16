@@ -41,7 +41,7 @@ class cliente(models.Model):
     telefonoCliente = fields.Char(string='Telefono', required=True)
 
     #Relacion entre tablas
-    suscripcion_id = fields.Many2One('alquileres.suscripcion', string='Clientes')
+    suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Clientes')
     alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquileres' )
 
 

@@ -46,7 +46,7 @@ class cliente(models.Model):
 
 
 class alquiler(models.Model):
-    _name = 'alquiler.alquiler'
+    _name = 'alquileres.alquiler'
     _description = 'Define los atributos del alquiler'
 
     #Atributos
@@ -56,4 +56,4 @@ class alquiler(models.Model):
     
     #Relacion entre tablas
 
-    cliente_id = fields.Many2many('alquiler.cliente', string='Clientes')
+    cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')

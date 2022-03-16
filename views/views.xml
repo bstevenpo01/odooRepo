@@ -58,7 +58,7 @@
 -->
 
 <!--VISTA CLIENTES-->
-    <record model="ir.ui.view" id="alquileres.cliente_list_view">
+    <record model="ir.ui.view" id="alquileres_cliente_list_view">
       <field name="name">alquileres.cliente.view.tree</field>
       <field name="model">alquileres.cliente</field>
       <field name="arch" type="xml">
@@ -73,7 +73,7 @@
     </record>
 
   <!--VISTA SUSCRIPCION-->
-    <record model="ir.ui.view" id="alquileres.suscripcion_list_view">
+    <record model="ir.ui.view" id="alquileres_suscripcion_list_view">
       <field name="name">alquileres.suscripcion.view.tree</field>
       <field name="model">alquileres.suscripcion</field>
       <field name="arch" type="xml">
@@ -87,7 +87,7 @@
 
 
 <!--VISTA ALQUILER-->
-    <record model="ir.ui.view" id="alquileres.alquiler_list_view">
+    <record model="ir.ui.view" id="alquileres_alquiler_list_view">
       <field name="name">alquileres.alquiler.view.tree</field>
       <field name="model">alquileres.alquiler</field>
       <field name="arch" type="xml">
@@ -102,29 +102,29 @@
     </record>
 
 <!--DEFINICION DE MENUS-->
-    <record model="ir.actions.act_window" id="alquileres.cliente_action_window">
+    <record model="ir.actions.act_window" id="alquileres_cliente_action_window">
       <field name="name">Clientes</field>
       <field name="res_model">alquileres.cliente</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="alquileres.suscripcion_action_window">
+    <record model="ir.actions.act_window" id="alquileres_suscripcion_action_window">
       <field name="name">Suscripciones</field>
       <field name="res_model">alquileres.suscripcion</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <record model="ir.actions.act_window" id="alquileres.alquiler_action_window">
+    <record model="ir.actions.act_window" id="alquileres_alquiler_action_window">
       <field name="name">Alquileres</field>
       <field name="res_model">alquileres.alquiler</field>
       <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="alquileres" id="alquileres.menu_root"/>
+    <menuitem name="alquileres" id="alquileres_menu_root"/>
 
-    <menuitem name="Clientes" id="alquileres.cliente_menu" parent="alquileres.menu_root" action="alquileres.cliente_action_window"/>
-    <menuitem name="Suscripciones" id="alquileres.suscripcion_menu" parent="alquileres.menu_root" action="alquileres.suscripcion_action_window"/>
-    <menuitem name="Alquileres" id="alquileres.alquiler_menu" parent="alquileres.menu_root" action="alquileres.alquiler_action_window"/>
+    <menuitem name="Clientes" id="alquileres_cliente_menu" parent="alquileres.menu_root" action="alquileres_cliente_action_window"/>
+    <menuitem name="Suscripciones" id="alquileres_suscripcion_menu" parent="alquileres.menu_root" action="alquileres_suscripcion_action_window"/>
+    <menuitem name="Alquileres" id="alquileres_alquiler_menu" parent="alquileres.menu_root" action="alquileres_alquiler_action_window"/>
 
   </data>
 </odoo>

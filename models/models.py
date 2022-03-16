@@ -39,7 +39,7 @@ class cliente(models.Model):
 
     # Atributos
     nombreCliente = fields.Char(string='Nombre', required=True)
-    apellidosCliente = fields.Char(string='Apellidos')
+    apellidosCliente = fields.Char(string='Apellidos', required=True)
     dniCliente = fields.Char(string='DNI', required=True)
     fechaNacimiento = fields.Date(string='Fecha Nacimiento', required=True, default = fields.date.today())
     direccionCliente = fields.Char(string='Direccion', required=True)

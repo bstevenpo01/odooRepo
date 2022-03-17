@@ -76,8 +76,7 @@ class alquiler(models.Model):
     descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
     fechaInicio = fields.Date(string="Fecha inicio alquiler", required=True)
     fechaFin = fields.Date(string="Fecha final alquiler", required=True)
-    
-    
+
     #Relacion entre tablas
 
     cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')

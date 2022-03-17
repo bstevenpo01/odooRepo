@@ -17,7 +17,9 @@
 #         for record in self:
 #             record.value2 = float(record.value) / 100
 
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
+from dateutil.relativedelta import *
+from datetime import date
 
 class suscripcion(models.Model):
     _name = 'alquileres.suscripcion'
@@ -67,3 +69,13 @@ class alquiler(models.Model):
     #Relacion entre tablas
 
     cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')
+
+    @api.constrains('fechaInicio')
+    def _checkFechainicio(self):
+        hoy = date.today()
+        for alquiler in self:
+            alquiler.dias = relativedelta(hoy, alquiler.fechaInicio).days
+            if (alquiler.dias > 0):
+                raise exceptions.ValidationError("El alquiler no puede ser anterior a hoy")
+
+

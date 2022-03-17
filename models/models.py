@@ -30,6 +30,11 @@ class suscripcion(models.Model):
     tipoSuscripcion = fields.Selection(string='Tipo de suscripcion', selection=[('a','platinun'),('b','Gold'),('c','Gold+'),('d','Vip')], help='Tipo de suscripcion que tiene el cliente', required=True)
     descripcionSuscripcion = fields.Text(string='Descripcion de la suscripcion')
 
+    def name_get(self):
+        listaSus = []
+        for sus in self:
+            listaSus.append(sus.id, sus.nombreSus)
+
 
 
     #Relacion entre tablas

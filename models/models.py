@@ -34,6 +34,7 @@ class suscripcion(models.Model):
         listaSus = []
         for sus in self:
             listaSus.append(sus.id, sus.nombreSus)
+        return listaSus
 
 
 

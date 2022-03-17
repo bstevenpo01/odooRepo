@@ -47,7 +47,7 @@ class cliente(models.Model):
     direccionCliente = fields.Char(string='Direccion', required=True)
     telefonoCliente = fields.Char(string='Telefono', required=True)
     provincia = fields.Selection(string='Provincia', selection=[('a','Madrid'),('b','Toledo'),('c','Burgos'),('d','Cantabria'),('e','Albacete')], help='Tipo de provincia', required=True)
-    #edad = fields.Integer('Edad', compute='_getEdad')
+    edad = fields.Integer('Edad', compute='_getEdad')
 
 
 

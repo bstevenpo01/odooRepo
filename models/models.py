@@ -61,26 +61,6 @@ class cliente(models.Model):
     alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquiler' )
 
 
-
-
-
-
-
-class alquiler(models.Model):
-    _name = 'alquileres.alquiler'
-    _description = 'Define los atributos del alquiler'
-
-    #Atributos
-    nombreVideojuego = fields.Char(string='Nombre Videojuego', required=True)
-    tipoVideojuego = fields.Selection(string='Tipo de videojuego', selection=[('d','Deportes'),('a','Accion'),('c','Carreras'),('e','Estrategia')], help='Tipo de videojuego que esta alquilando')
-    descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
-    fechaInicio = fields.Date(string="Fecha inicio alquiler", required=True)
-    fechaFin = fields.Date(string="Fecha final alquiler", required=True)
-
-    #Relacion entre tablas
-
-    cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')
-
     @api.depends('fechaNacimiento')
     def _getEdad(self):
         hoy = date.today()
@@ -100,6 +80,27 @@ class alquiler(models.Model):
                 raise exceptions.ValidationError("El DNI no puede tener mas de 9 caracteres")
             if (len(cliente.dniCliente) < 9):
                 raise exceptions.ValidationError("El DNI no puede tener menos de 9 caracteres")
+
+
+
+
+
+
+
+class alquiler(models.Model):
+    _name = 'alquileres.alquiler'
+    _description = 'Define los atributos del alquiler'
+
+    #Atributos
+    nombreVideojuego = fields.Char(string='Nombre Videojuego', required=True)
+    tipoVideojuego = fields.Selection(string='Tipo de videojuego', selection=[('d','Deportes'),('a','Accion'),('c','Carreras'),('e','Estrategia')], help='Tipo de videojuego que esta alquilando')
+    descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
+    fechaInicio = fields.Date(string="Fecha inicio alquiler", required=True)
+    fechaFin = fields.Date(string="Fecha final alquiler", required=True)
+
+    #Relacion entre tablas
+
+    cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')
 
     @api.constrains('fechaFin')
     def _checkFechaFin(self):

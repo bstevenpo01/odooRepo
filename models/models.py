@@ -64,7 +64,7 @@ class cliente(models.Model):
             cliente.edad = relativedelta(hoy, cliente.fechaNacimiento).years
         
      @api.constrains('fechaNacimiento')
-     def _getEdad(self):
+     def _checkEdad(self):
         for cliente in self:
             if (cliente.edad < 18):
                 raise exceptions.ValidationError("El cliente debe ser mayor de edad")

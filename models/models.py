@@ -65,18 +65,26 @@ class alquiler(models.Model):
     descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
     fechaInicio = fields.Date(string="Fecha inicio alquiler", required=True)
     fechaFin = fields.Date(string="Fecha final alquiler", required=True)
-    dias = fields.Integer(string='Dias')
+    #dias = fields.Integer(string='Dias')
     
     #Relacion entre tablas
 
     cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')
 
+
+    @api.constrains('fechaFin')
+    def _checkFechaFin(self):
+        for alquiler in self:
+            if relativedelta(alquiler.fechaInicio, alquiler.fechaFin).days > 0:
+                raise exceptions.ValidationError("La fecha de fin no puede ser inferior a la del inicio del alquiler")
+
+
     @api.constrains('fechaInicio')
     def _checkFechainicio(self):
         hoy = date.today()
         for alquiler in self:
-            alquiler.dias = relativedelta(hoy, alquiler.fechaInicio).days
-            if (alquiler.dias > 0):
+            diasCalculados = relativedelta(hoy, alquiler.fechaInicio).days
+            if (diasCalculados > 0):
                 raise exceptions.ValidationError("El alquiler no puede ser anterior a hoy")
 
 

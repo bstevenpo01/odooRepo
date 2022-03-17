@@ -42,7 +42,7 @@ class suscripcion(models.Model):
     cliente_id = fields.One2many('alquileres.cliente','suscripcion_id', string='Suscripcion')
 
 class cliente(models.Model):
-    _name = 'alquileres_cliente'
+    _name = 'alquileres.cliente'
     _description = 'Define los atributos de un ciente'
 
     # Atributos

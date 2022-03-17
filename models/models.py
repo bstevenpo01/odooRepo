@@ -74,7 +74,7 @@ class alquiler(models.Model):
     def _checkFechainicio(self):
         hoy = date.today()
         for alquiler in self:
-            alquiler.dias = relativedelta(hoy, alquiler.fechaInicio).days
+            alquiler_dias = relativedelta(hoy, alquiler.fechaInicio).days
             if (alquiler.dias > 0):
                 raise exceptions.ValidationError("El alquiler no puede ser anterior a hoy")
 

@@ -33,7 +33,7 @@ class suscripcion(models.Model):
     def name_get(self):
         listaSus = []
         for sus in self:
-            listaSus.append(sus.id, sus.nombreSus)
+            listaSus.append((sus.id, sus.nombreSus))
         return listaSus
 
 

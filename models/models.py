@@ -29,12 +29,13 @@ class suscripcion(models.Model):
     nombreSus = fields.Char(string='Nombre suscripcion', required=True)
     tipoSuscripcion = fields.Selection(string='Tipo de suscripcion', selection=[('a','platinun'),('b','Gold'),('c','Gold+'),('d','Vip')], help='Tipo de suscripcion que tiene el cliente', required=True)
     descripcionSuscripcion = fields.Text(string='Descripcion de la suscripcion')
-
-
+    edad = fields,Integer('Edad', compute='_getEdad')
 
 
     #Relacion entre tablas
     cliente_id = fields.One2many('alquileres.cliente','suscripcion_id', string='Suscripcion')
+
+
 
 class cliente(models.Model):
     _name = 'alquileres.cliente'
@@ -50,10 +51,31 @@ class cliente(models.Model):
     provincia = fields.Selection(string='Provincia', selection=[('a','Madrid'),('b','Toledo'),('c','Burgos'),('d','Cantabria'),('e','Albacete')], help='Tipo de provincia', required=True)
 
 
+
     #Relacion entre tablas
     suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Suscripcion')
     alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquiler' )
 
+
+    @api.depends('fechaNacimiento')
+    def _getEdad(self):
+        hoy = date.today()
+        for cliente in self:
+            cliente.edad = relativedelta(hoy, cliente.fechaNacimiento).years
+        
+     @api.constrains('fechaNacimiento')
+    def _getEdad(self):
+        for cliente in self:
+            if (cliente.edad < 18):
+                raise exceptions.ValidationError("El cliente debe ser mayor de edad")
+
+     @api.constrains('dniCliente')
+    def _checkDNI(self):
+        for cliente in self:
+            if (len(cliente.dniCliente) > 9):
+                raise exceptions.ValidationError("El DNI no puede tener mas de 9 caracteres")
+            if (len(cliente.dniCliente) < 9):
+                raise exceptions.ValidationError("El DNI no puede tener menos de 9 caracteres")
 
 class alquiler(models.Model):
     _name = 'alquileres.alquiler'
@@ -65,7 +87,7 @@ class alquiler(models.Model):
     descripcionVideojuego = fields.Text(string='Descripcion del videojuego')
     fechaInicio = fields.Date(string="Fecha inicio alquiler", required=True)
     fechaFin = fields.Date(string="Fecha final alquiler", required=True)
-    #dias = fields.Integer(string='Dias')
+    
     
     #Relacion entre tablas
 

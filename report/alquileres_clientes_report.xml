@@ -1,0 +1,80 @@
+<odoo>
+    <record id="alquileres.clientes_report" model="ir.actions.report">
+        <field name="name">Informe clientes</field>
+        <field name="model">alquileres.suscripcion</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">alquileres.suscripcion_report_view</field>
+        <field name="report_file">alquileres.suscripcion_report</field>
+        <field name="binding_model_id" ref="model_alquileres_suscripcion"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <template id="suscripcion_report_view">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="suscripcion">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>INFORME</h2>
+                        <h3 t-field="suscripcion.nombreSus" />
+                        <table class="table table-sm o_main_table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Apellidos</th>
+                                    <th>DNI</th>
+                                    <th>Fecha de nacimiento</th>
+                                    <th>Telefono</th>
+                                    <th>Direccion</th>
+                                    <th>Provincia</th>
+                                    <th>Edad</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="suscripcion.cliente_id" t-as="cliente">
+                                    <tr>
+                                        <td>
+                                            <span t-field="cliente.nombreCliente"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="cliente.apellidosCliente"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="cliente.dniCliente"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="cliente.fechaNacimiento"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="cliente.direccionCliente"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-field=" cliente.telefonoCliente"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="cliente.provincia"/>
+                                        </td>
+
+                                        <td>
+                                            <span t-field="cliente.edad"/>
+                                        </td>
+                                        
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+
+    </template>
+    
+
+</odoo>

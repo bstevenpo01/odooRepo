@@ -1,5 +1,5 @@
 <odoo>
-    <record id="alquileres.clientes_report" model="ir.actions.report">
+    <record id="alquileres_clientes_report" model="ir.actions.report">
         <field name="name">Informe clientes</field>
         <field name="model">alquileres.suscripcion</field>
         <field name="report_type">qweb-pdf</field>

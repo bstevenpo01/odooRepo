@@ -47,7 +47,7 @@ class cliente(models.Model):
     direccionCliente = fields.Char(string='Direccion', required=True)
     telefonoCliente = fields.Char(string='Telefono', required=True)
     provincia = fields.Selection(string='Provincia', selection=[('a','Madrid'),('b','Toledo'),('c','Burgos'),('d','Cantabria'),('e','Albacete')], help='Tipo de provincia', required=True)
-    edad = fields.Integer('Edad', compute='_getEdad')
+    #edad = fields.Integer('Edad', compute='_getEdad')
 
 
 
@@ -57,25 +57,7 @@ class cliente(models.Model):
     alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquiler' )
 
 
-    @api.depends('fechaNacimiento')
-    def _getEdad(self):
-        hoy = date.today()
-        for cliente in self:
-            cliente.edad = relativedelta(hoy, cliente.fechaNacimiento).years
-        
-     @api.constrains('fechaNacimiento')
-     def _checkEdad(self):
-        for cliente in self:
-            if (cliente.edad < 18):
-                raise exceptions.ValidationError("El cliente debe ser mayor de edad")
 
-     @api.constrains('dniCliente')
-     def _checkDNI(self):
-        for cliente in self:
-            if (len(cliente.dniCliente) > 9):
-                raise exceptions.ValidationError("El DNI no puede tener mas de 9 caracteres")
-            if (len(cliente.dniCliente) < 9):
-                raise exceptions.ValidationError("El DNI no puede tener menos de 9 caracteres")
 
 
 class alquiler(models.Model):

@@ -123,7 +123,7 @@
       <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="alquileres" id="alquileres_menu_root" web_icon="alquileres,static/description/icono.png"/>
+    <menuitem name="alquileres" id="alquileres_menu_root" web_icon="alquileres,static/description/icon.png"/>
 
     <menuitem name="Clientes" id="alquileres_cliente_menu" parent="alquileres_menu_root" action="alquileres_cliente_action_window"/>
     <menuitem name="Suscripciones" id="alquileres_suscripcion_menu" parent="alquileres_menu_root" action="alquileres_suscripcion_action_window"/>

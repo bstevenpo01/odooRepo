@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_alquileres_cliente_role1,alquileres.cliente.role1,model_alquileres_cliente,alquileres_group_alquileres_role1,1,1,1,1
-access_alquileres_suscripcion_role1,alquileres.suscripcion.role1,model_alquileres_suscripcion,alquileres_group_alquileres_role1,1,1,1,1
-access_alquileres_alquiler_role1,alquileres.alquiler.role1,model_alquileres_alquiler,alquileres_group_alquileres_role1,1,0,0,0
-access_alquileres_alquiler_role2,alquileres.alquiler.role2,model_alquileres_alquiler,alquileres_group_alquileres_role2,1,1,1,1
+access_alquileres_cliente_role1,alquileres.cliente.role1,model_alquileres_cliente,alquileres.group_alquileres_role1,1,1,1,1
+access_alquileres_suscripcion_role1,alquileres.suscripcion.role1,model_alquileres_suscripcion,alquileres.group_alquileres_role1,1,1,1,1
+access_alquileres_alquiler_role1,alquileres.alquiler.role1,model_alquileres_alquiler,alquileres.group_alquileres_role1,1,0,0,0
+access_alquileres_alquiler_role2,alquileres.alquiler.role2,model_alquileres_alquiler,alquileres.group_alquileres_role2,1,1,1,1

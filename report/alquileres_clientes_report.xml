@@ -27,7 +27,7 @@
                                     <th>Telefono</th>
                                     <th>Direccion</th>
                                     <th>Provincia</th>
-                                    <th>Edad</th>
+                                    
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,9 +61,6 @@
                                             <span t-field="cliente.provincia"/>
                                         </td>
 
-                                        <td>
-                                            <span t-field="cliente.edad"/>
-                                        </td>
                                         
                                     </tr>
                                 </t>

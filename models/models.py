@@ -75,8 +75,9 @@ class alquiler(models.Model):
     #Relacion entre tablas
 
     cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')
+    
 
-        @api.depends('fechaNacimiento')
+    @api.depends('fechaNacimiento')
     def _getEdad(self):
         hoy = date.today()
         for cliente in self:

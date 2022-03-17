@@ -64,13 +64,13 @@ class cliente(models.Model):
             cliente.edad = relativedelta(hoy, cliente.fechaNacimiento).years
         
      @api.constrains('fechaNacimiento')
-    def _getEdad(self):
+     def _getEdad(self):
         for cliente in self:
             if (cliente.edad < 18):
                 raise exceptions.ValidationError("El cliente debe ser mayor de edad")
 
      @api.constrains('dniCliente')
-    def _checkDNI(self):
+     def _checkDNI(self):
         for cliente in self:
             if (len(cliente.dniCliente) > 9):
                 raise exceptions.ValidationError("El DNI no puede tener mas de 9 caracteres")

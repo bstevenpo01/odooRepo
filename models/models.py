@@ -81,19 +81,19 @@ class alquiler(models.Model):
 
     cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')
 
-     @api.depends('fechaNacimiento')
+    @api.depends('fechaNacimiento')
     def _getEdad(self):
         hoy = date.today()
         for cliente in self:
             cliente.edad = relativedelta(hoy, cliente.fechaNacimiento).years
 
-     @api.constrains('fechaNacimiento')
+    @api.constrains('fechaNacimiento')
      def _checkEdad(self):
         for cliente in self:
             if (cliente.edad < 18):
                 raise exceptions.ValidationError("El cliente debe ser mayor de edad")
 
-     @api.constrains('dniCliente')
+    @api.constrains('dniCliente')
      def _checkDNI(self):
         for cliente in self:
             if (len(cliente.dniCliente) > 9):

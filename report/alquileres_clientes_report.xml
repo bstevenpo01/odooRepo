@@ -3,8 +3,8 @@
         <field name="name">Informe clientes</field>
         <field name="model">alquileres.suscripcion</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">alquileres.suscripcion_report_view</field>
-        <field name="report_file">alquileres.suscripcion_report</field>
+        <field name="report_name">alquileres_suscripcion_report_view</field>
+        <field name="report_file">alquileres_suscripcion_report</field>
         <field name="binding_model_id" ref="model_alquileres_suscripcion"/>
         <field name="binding_type">report</field>
     </record>

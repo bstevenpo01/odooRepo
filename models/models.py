@@ -60,7 +60,7 @@ class cliente(models.Model):
     suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Suscripcion')
     alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquiler' )
     devoluciones_id = fields.Many2many('incidencias.devoluciones', string='Devoluciones')
-    incidencias_id = fields.Many2many('incidencias.incidencia', string='Incidencias')
+    #incidencias_id = fields.Many2many('incidencias.incidencia', string='Incidencias')
 
 
     @api.depends('fechaNacimiento')

@@ -59,7 +59,8 @@ class cliente(models.Model):
     #Relacion entre tablas
     suscripcion_id = fields.Many2one('alquileres.suscripcion', string='Suscripcion')
     alquiler_ids = fields.Many2many('alquileres.alquiler', string='Alquiler' )
-
+    devoluciones_id = fields.Many2many('incidencias.devoluciones', string='Devoluciones')
+    
 
     @api.depends('fechaNacimiento')
     def _getEdad(self):
@@ -101,6 +102,7 @@ class alquiler(models.Model):
     #Relacion entre tablas
 
     cliente_id = fields.Many2many('alquileres.cliente', string='Clientes')
+
 
     @api.constrains('fechaFin')
     def _checkFechaFin(self):
